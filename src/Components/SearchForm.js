@@ -4,7 +4,8 @@ export default class SearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userSearch: null
+      userSearch: null,
+      error: null
     };
   }
 
@@ -14,10 +15,22 @@ export default class SearchForm extends Component {
     });
   };
 
+  SubmitForm = event => {
+    debugger;
+    event.preventDefault();
+    if (this.state.userSearch == null) {
+      this.setState({ error: "Please enter a book or author to search" });
+    } else {
+      this.props.handleSubmit(this.state.userSearch);
+    }
+  };
+
   render() {
+    debugger;
     return (
-      <form className="searchBookForm">
+      <form className="searchBookForm" onSubmit={this.SubmitForm}>
         <label>Enter Book Information Here</label>
+        <br />
         <input
           type="text"
           onChange={this.handleInputChange}
