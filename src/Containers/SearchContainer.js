@@ -22,7 +22,6 @@ export default class SearchContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        debugger;
         let booksList = body.books;
         this.setState({ books: booksList });
       })
