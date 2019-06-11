@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount, render } from "enzyme";
-import SearchForm from "../SearchForm";
+import SearchForm from "../../SearchForm";
 
 // describe what we are testing
 describe("Search Field Component", () => {
