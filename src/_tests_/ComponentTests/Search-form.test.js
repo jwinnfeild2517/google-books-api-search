@@ -1,14 +1,24 @@
 import React from "react";
 import { shallow, mount, render } from "enzyme";
-import SearchForm from "../SearchForm";
+import SearchForm from "../../Components/SearchForm";
 
 // describe what we are testing
 describe("Search Field Component", () => {
   // make our assertion and what we expect to happen
   it("should render without throwing an error", () => {
+    shallow(<SearchForm />);
+  });
+
+  // check for the intial state when the component renders
+  it("should should have the specified initial state", () => {
+    expect(shallow(<SearchForm />).state()).toEqual({ userSearch: null });
+  });
+
+  //tests if a form with className searchBookForm exists is rendered on the compoennt
+  it("should render a form", () => {
     expect(
       shallow(<SearchForm />)
-        .find("form.searchBookForm") //tests if a form with className searchBookForm exists is rendered on the compoennt
+        .find("form.searchBookForm")
         .exists()
     ).toBe(true);
   });
@@ -33,5 +43,11 @@ describe("Search Field Component", () => {
     it("should render a submit button", () => {
       expect(shallow(<SearchForm />).find("#SubmitButton").length).toEqual(1);
     });
+
+    // it("should invoke the onSubmit function from props when clicked", () => {
+    //   const wrapper = mount(<SearchForm />);
+    //   wrapper.find("#SubmitButton").simulate("click");
+    //   expect(onClick).toHaveBeenCalled();
+    // });
   });
 });
