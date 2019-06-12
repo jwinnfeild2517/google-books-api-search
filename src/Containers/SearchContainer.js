@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SearchForm from "../Components/SearchForm";
+import BookTile from "../Components/BookTile";
 
 export default class SearchContainer extends Component {
   constructor(props) {
@@ -22,16 +23,37 @@ export default class SearchContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        let booksList = body.books;
+        debugger;
+        let booksList = body.items;
         this.setState({ books: booksList });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   };
 
   render() {
+    let bookList = this.state.books.map(book => {
+        let authors = ""
+        book.volumeInfo.authors.forEach(name => { return authors += name + " ," })
+
+      return (
+        <BookTile
+          key={book.id}
+          image={book.volumeInfo.imageLinks.thumbnail}
+          author={authors}
+          description={book.volumeInfo.description}
+          rating={book.volumeInfo.averageRating}
+          link={book.volumeInfo.infoLink}
+        />
+      );
+    });
+
     return (
       <div className="SearchContainer">
+        <div>
         <SearchForm handleSubmit={this.handleSubmit} />
+        <div>
+            {bookList}
+        </div>
       </div>
     );
   }

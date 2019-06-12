@@ -9,6 +9,10 @@ describe("Search Container", () => {
     shallow(<SearchContainer />);
   });
 
+  it("should should have the specified initial state", () => {
+    expect(shallow(<SearchForm />).state()).toEqual({ books: [] });
+  });
+
   it("should render a search Form on the page", () => {
     expect(
       mount(<SearchContainer />)
@@ -26,4 +30,6 @@ describe("Search Container", () => {
       formSubmit: expect.any(Function)
     });
   });
+
+  it("it should render a bookTile", () => {});
 });
