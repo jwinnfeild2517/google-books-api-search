@@ -23,7 +23,7 @@ export default class SearchContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        debugger;
+        // ;
         let booksList = body.items;
         this.setState({ books: booksList });
       })
@@ -31,37 +31,42 @@ export default class SearchContainer extends Component {
   };
 
   render() {
-    let bookList = this.state.books.map(book => {
-        let authors = ""
-        book.volumeInfo.authors.forEach(name => { return authors += name + " ," })
-
-      return (
-        <BookTile
-          key={book.id}
-          image={book.volumeInfo.imageLinks.thumbnail}
-          author={authors}
-          description={book.volumeInfo.description}
-          rating={book.volumeInfo.averageRating}
-          link={book.volumeInfo.infoLink}
-        />
-      );
-    });
+    let bookList = [];
+    if (this.state.books != null) {
+      bookList = this.state.books.map(book => {
+        let authors = "";
+        let description = book.searchInfo["textSnippet"];
+        let authorsArray = book.volumeInfo.authors;
+        authorsArray.forEach(name => {
+          if (name != authorsArray[authorsArray.length - 1]) {
+            return (authors += name + ", ");
+          } else {
+            return (authors += name);
+          }
+        });
+        if (!bookList.includes(book)) {
+          return (
+            <BookTile
+              key={book.id}
+              image={book.volumeInfo.imageLinks}
+              title={book.volumeInfo.title}
+              author={authors}
+              description={description}
+              rating={book.volumeInfo.averageRating}
+              link={book.volumeInfo.infoLink}
+            />
+          );
+        }
+      });
+    }
 
     return (
       <div className="SearchContainer">
-        <div>
-        <SearchForm handleSubmit={this.handleSubmit} />
-        <div>
-            {bookList}
+        <div className="jumboTron">
+          <SearchForm handleSubmit={this.handleSubmit} />
         </div>
+        <div className="bookList">{bookList}</div>
       </div>
     );
   }
 }
-
-// body.items[0].volumeInfo.imageLinks.thumbnail
-// body.items[0].volumeInfo.title
-//body.items[0].volumeInfo.authors (array)
-//body.items[0].volumeInfo.description
-//body.items[0].volumeInfo.averageRating
-//body.items[0].volumeInfo.infoLink

@@ -3,27 +3,21 @@ import React, { Component } from "react";
 export default class BookTile extends Component {
   render() {
     return (
-      <div>
-        <img src="" alt="book image" className="book-image" />
-        <h3>Book Name</h3>
+      <div className="bookTile">
+        <img src={this.props.pic} alt="book" className="book-image" />
+        <h3>{this.props.title}</h3>
         <p>
-          <strong>Author:</strong>AuthorName
+          <strong>Author(s): </strong>
+          {this.props.author}
         </p>
-        <p>description</p>
+        <p>{this.props.description}</p>
         <p>
-          <strong>Average Rating:</strong> Rating
+          <strong>Average Rating: </strong> {this.props.rating}
         </p>
         <button>
-          <a href="">Preview</a>
+          <a href={this.props.link}>Preview</a>
         </button>
       </div>
     );
   }
 }
-
-// body.items[0].volumeInfo.imageLinks.thumbnail
-// body.items[0].volumeInfo.title
-//body.items[0].volumeInfo.authors (array)
-//body.items[0].volumeInfo.description
-//body.items[0].volumeInfo.averageRating
-//body.items[0].volumeInfo.infoLink
