@@ -4,7 +4,7 @@ export default class BookTile extends Component {
   render() {
     return (
       <div className="bookTile">
-        <img src={this.props.pic} alt="book" className="book-image" />
+        <img src={this.props.image} alt="book" className="book-image" />
         <h3>{this.props.title}</h3>
         <p>
           <strong>Author(s): </strong>

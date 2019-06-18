@@ -35,6 +35,7 @@ export default class SearchForm extends Component {
           id="searchField"
           name="userSearch"
         />
+        <br />
         <input type="submit" id="SubmitButton" />
       </form>
     );

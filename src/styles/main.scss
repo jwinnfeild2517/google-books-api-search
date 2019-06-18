@@ -7,13 +7,19 @@
 
 .jumboTron {
   height: 40vh;
-  background: blue;
+  // background: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 60%;
   margin: 0 auto;
+
+  .searchBookForm {
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .bookList {
@@ -27,6 +33,14 @@
   background: olive;
   color: white;
   padding: 20px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+
+  img {
+    width: 128px;
+    height: 197px;
+  }
   //   width: 75px;
   //   height: 75px;
 }
