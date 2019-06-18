@@ -10,7 +10,7 @@ export default class mainPage extends Component {
           My Name is Jenner Thomas
         </h1>
         <h2>This is "Title Search"</h2>
-        <p>A book seach Engine powered my Google</p>
+        <p>A book Search Engine Powered by Google</p>
 
         <div className="buttonGroup">
           <button className="mainPageButton">
