@@ -5,6 +5,31 @@
   color: white;
 }
 
+.mainPage {
+  height: 100vh;
+  overflow: hidden;
+  h1 {
+    margin-top: 20vh;
+  }
+  background-color: ;
+
+  .mainPageButton {
+    margin: 15px;
+    border-radius: 50px;
+    border-width: 1px;
+    display: inline-block;
+    padding: 16px 42px;
+    color: black;
+    font: 400 13px Heebo, sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
 .jumboTron {
   height: 40vh;
   // background: blue;
