@@ -27,15 +27,19 @@ export default class SearchForm extends Component {
   render() {
     return (
       <form className="searchBookForm" onSubmit={this.SubmitForm}>
-        <label>Enter Book Information Here</label>
+        <label>
+          <h1>Enter Book Information Here</h1>
+        </label>
         <br />
         <input
           type="text"
           onChange={this.handleInputChange}
           id="searchField"
           name="userSearch"
+          className="searchField"
         />
-        <input type="submit" id="SubmitButton" />
+        <br />
+        <input type="submit" className="mainPageButton" id="SubmitButton" />
       </form>
     );
   }

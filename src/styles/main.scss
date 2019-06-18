@@ -1,19 +1,92 @@
 .App {
-  background-color: #282c34;
+  background-color: #004a2f;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: Heebo, sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0;
+  // color: white;
+}
+
+.mainPage {
+  height: 100vh;
+  overflow: hidden;
+  color: black;
+  padding-left: 100px;
+
+  p {
+    font-size: 1.5em;
+  }
+  h1 {
+    margin-top: 20vh;
+    font-weight: 300;
+    font-size: 2.5em;
+    line-height: 1.4;
+    font-family: Heebo, sans-serif;
+  }
+  background-color: #fefefa;
+
+  @media screen and (max-width: 680px) {
+    text-align: center;
+    padding: 30px;
+
+    .buttonGroup {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 30px;
+    }
+  }
+}
+
+.mainPageButton {
+  margin: 15px;
+  border-radius: 50px;
+  border: 1px solid black;
+  display: inline-block;
+  padding: 16px 42px;
+  color: black;
+  font: 400 13px Heebo, sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ff6337;
+
+  a {
+    text-decoration: none;
+    color: #ff6337;
+  }
 }
 
 .jumboTron {
+  h1 {
+    margin-top: 10vh;
+    color: aliceblue;
+    font-weight: 300;
+    font-size: 2.5em;
+  }
   height: 40vh;
-  background: blue;
+  // background: blue;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 60%;
   margin: 0 auto;
+
+  .searchBookForm {
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+    input {
+      margin: 15px;
+    }
+
+    .searchField {
+      height: 30px;
+      width: 300px;
+    }
+  }
 }
 
 .bookList {
@@ -21,12 +94,25 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 75px;
+
+  @media screen and (max-width: 680px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .bookTile {
-  background: olive;
+  background: #002f35;
   color: white;
   padding: 20px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  border-radius: 20px;
+
+  img {
+    width: 128px;
+    height: 197px;
+  }
   //   width: 75px;
   //   height: 75px;
 }
