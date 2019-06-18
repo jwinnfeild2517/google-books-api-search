@@ -23,9 +23,9 @@ export default class SearchContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        // ;
         let booksList = body.items;
         this.setState({ books: booksList });
+        debugger;
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   };
@@ -34,15 +34,16 @@ export default class SearchContainer extends Component {
     let bookList = [];
     if (this.state.books != null) {
       bookList = this.state.books.map(book => {
-        // debugger;
         let authors = "";
         let image =
           book.volumeInfo.imageLinks === undefined
             ? "https://media.istockphoto.com/photos/books-picture-id949118068?k=6&m=949118068&s=612x612&w=0&h=JQ8TsVv0Bx36l1KwwhOaAz564l8MIDSRFebHbLqGjIA="
             : `${book.volumeInfo.imageLinks.thumbnail}`;
 
-        // let description = book.searchInfo["textSnippet"];
-        let authorsArray = book.volumeInfo.authors;
+        let authorsArray =
+          book.volumeInfo.authors === undefined
+            ? ["unknown"]
+            : book.volumeInfo.authors;
         authorsArray.forEach(name => {
           if (name !== authorsArray[authorsArray.length - 1]) {
             return (authors += name + ", ");
@@ -58,7 +59,6 @@ export default class SearchContainer extends Component {
               image={image}
               title={book.volumeInfo.title}
               author={authors}
-              // description={book.volumeInfo.description}
               rating={book.volumeInfo.averageRating}
               link={book.volumeInfo.infoLink}
             />
