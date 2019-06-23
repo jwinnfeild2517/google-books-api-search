@@ -1,6 +1,6 @@
-# Name: Title Search 
+# Title Search 
 
-Description: A Book Search app powered by Google. 
+A Book Search app powered by Google. 
 
 User Stories:
 
